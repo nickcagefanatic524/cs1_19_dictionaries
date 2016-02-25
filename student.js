@@ -5,25 +5,124 @@
 // showPerson({'name': 'Daniel Bergey', 'email': 'dbergey@friendscentral.org'})
 // returns "Daniel Bergey <dbergey@friendscentral.org>"
 
+var showPerson = function(p){
+    return p.name + ' <' + p.email + '>'
+    
+};
 // Write `showDate`.
 // Input: {year: 1970, month: 01, day:01, hour: 0, minute: 0, second: 0}
 // Output: "1970-01-31T12:59:59" Note the T between date and time
+var showDate = function(d){
+    if(d.year<10){
+        d.year = '0' + d.year;
+    }
+    if(d.month<10){
+        d.month = '0'+d.month;
+    }
+    if(d.day<10){
+        d.day = '0' + d.day;
+    }
+    if(d.hour<10){
+        d.hour = '0' +d.hour;
+    }
+    if(d.minute<10){
+        d.minute = '0' + d.minute;
+    }
+    if(d.second<10){
+        d.second='0'+d.second;
+    }
+    return d.year + '-' + d.month + "-" + d.day + "T" + d.hour + ":" + d.minute + ":" + d.second
+};
 
+    
 // compareInts
 // Input: 2 integer numbers
 // Output: one of "LT", "EQ", or "GT" (less than, equal, or greater than)
-
-
+var compareInts = function(c,q){
+    if(c>q){
+        return "GT";
+    }
+    if(c==q){
+        return "EQ";
+    }
+    if(c<q){
+        return "LT";
+    }
+};
 // compareDates
 // Input: Two dates, in the format:
 // {year: 1969, month: 7, day: 24, hour: 16, minute: 50, second: 35}
 // Output: one of "LT", "EQ", or "GT"
-
+var compareDates = function(a,s){
+    if(a.year>s.year){
+        return "GT";
+    }
+    if(a.year<s.year){
+        return "LT";
+    }
+    if(a.year==s.year){
+        if(a.month>s.month){
+            return "GT";
+        }
+        if(a.month<s.month){
+            return "LT";
+        }
+        if(a.month==s.month){
+            if(a.day>s.day){
+                return "GT";
+            }
+            if(a.day<s.day){
+                return 'LT';
+            }
+            if(a.day == s.day){
+                if(a.hour>s.hour){
+                    return "GT";
+                }
+                if (a.hour<s.hour){
+                    return "LT";
+                }
+                if(a.hour==s.hour){
+                    if(a.minute>s.minute){
+                        return "GT";
+                    }
+                    if(a.minute<s.minute){
+                        return "LT";
+                    }
+                    if(a.minute==s.minute){
+                        if(a.second>s.second){
+                            return "GT";
+                        }
+                        if(a.second<s.second){
+                            return "LT";
+                        }
+                        if(a.second==s.second){
+                            return "EQ";
+                        }
+                    }
+                }
+            }
+        }
+            
+    }
+};
 // elementOf
 // Input: a String and a list of Strings
 // Output: true or false (lowercase - these are JS keywords)
 // return true if the first input is present in the list (second input)
-
+var elementOf = function(x,l){
+    var i = 0;
+    while(i<l.length){
+        if(x==l[i]){
+        return true;
+        }
+        i++;
+    }
+    
+    if(i==l.length){
+        return false;
+    }
+    
+};
 // hasTag
 // Input: a String and an Email
 // Email has the following attributes:
